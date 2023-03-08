@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<properties resource="db_ko.properties" />
+<settings>
+	<setting name="jdbcTypeForNull" value="NULL"/>
+<!--DB 칼럼명을 낙타표기법으로 속성명과 자동 매핑 설정하기 	 -->
+	<setting name="mapUnderscoreToCamelCase" value="true"/>
+</settings>
+<typeAliases>
+	<typeAlias type="vo.QuestionVO" alias="questionVO"/>
+	<typeAlias type="vo.MemberVO" alias="memberVO"/>
+	<typeAlias type="vo.CurriculumVO" alias="curriculumVO"/>
+	<typeAlias type="vo.CodingTestVO" alias="codingTestVO"/>
+	<typeAlias type="vo.SubjectVO" alias="subjectVO"/>
+	<typeAlias type="vo.BoardVO" alias="boardVO"/>
+</typeAliases>
+	<environments default="dev">
+		<environment id="dev">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${user}"/>
+				<property name="password" value="${password}"/>
+				<!--활성화된 최대 커넥션 수 -->
+				<property name="poolMaximumActiveConnections" value="2"/>
+				<!--유휴상태에서 최대 커넥션 수 -->
+				<property name="poolMaximumIdleConnections" value="2"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="mappers/member.xml"/>
+		<mapper resource="mappers/question.xml"/>
+		<mapper resource="mappers/curriculum.xml"/>
+		<mapper resource="mappers/board.xml"/>
+		<mapper resource="mappers/boardList.xml"/>
+		<mapper resource="mappers/coding.xml"/>
+		<mapper resource="mappers/comment.xml"/>
+		<mapper resource="mappers/subject.xml"/>
+	</mappers>
+</configuration>

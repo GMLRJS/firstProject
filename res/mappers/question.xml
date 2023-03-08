@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="question">
+
+	<resultMap type="questionVO" id="questionMap">
+		<result column="MEM_ID" property="memberID"/>
+		<result column="Q_CONTENT" property="question"/>
+		<result column="Q_ANSWER" property="answer"/>
+	</resultMap>
+	
+	<select id="selectQuestion" resultMap = "questionMap" parameterType="String">
+		SELECT * FROM QUESTION WHERE MEM_ID = #{memberID};
+	</select>
+	
+	<insert id="insertQuestion" parameterType="questionVO">
+		INSERT INTO QUESTION (MEM_ID, Q_CONTENT, Q_ANSWER) VALUES (#{memberID},#{question},#{answer})
+	</insert>
+
+	<update id="updateQuestion" parameterType="questionVO">
+		UPDATE QUESTION SET Q_CONTENT = #{question}, Q_ANSWER = #{answer} WHERE MEM_ID = #{memberID}
+	</update>
+
+</mapper>

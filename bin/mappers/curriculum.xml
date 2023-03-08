@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="curriculum">
+	<resultMap type="curriculumVO" id="curriculumMap">
+		<result column="CURRI_ID" property="curriculumID"/>
+		<result column="CURRI_NAME" property="curriculumName"/>
+		<result column="CURRI_STARTDATE" property="startDate"/>
+		<result column="CURRI_ENDDATE" property="endDate"/>
+	</resultMap>
+	
+	<select id="selectOneCurriculum" resultMap = "curriculumMap">
+		SELECT * FROM CURRICULUM WHERE CURRI_ID = #{curriculumID}
+	</select>
+	
+	<select id="selectCurriculum" resultMap ="curriculumMap">
+		SELECT * FROM CURRICULUM 
+	</select>
+	
+	<insert id="insertCurriculum" parameterType ="curriculumVO">
+		INSERT INTO CURRICULUM (CURRI_ID, CURRI_NAME, CURRI_STARTDATE, CURRI_ENDDATE) 
+						VALUES(#{curriculumID}, #{curriculumName}, TO_DATE()#{startDate},'YYYY/MM/DD'), #{endDate})
+	</insert>
+	
+	<update id="updateCurriculum" parameterType="curriculumVO">
+		UPDATE CURRICULUM SET CURRI_NAME = #{curriculumName}, CURRI_STARTDATE = #{startDate}, CURRI_ENDDATE = #{endDate}
+				WHERE CURRI_ID = #{curriculumID}
+	</update>
+	
+	<delete id="deleteCurriculum" parameterType="String">
+		DELETE CURRICULUM WHERE CURRI_ID = #{curriculumID}
+	</delete>
+	
+</mapper>
