@@ -131,7 +131,7 @@ public class LoginPage {
 				if (myAccount.getPassword().equals(pass)) {
 
 					System.out.println("로그인 완료");
-
+//asdasdadsasdas
 					return;
 				} else {
 					System.out.println("비밀번호를 확인해주세요.");
