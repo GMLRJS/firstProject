@@ -149,7 +149,7 @@ public class MemberDAO extends MyBatisDAO{
 	
 	public List<MemberVO> selectAllMember(MemberVO vo){
 		
-		List<MemberVO> list = selectList("member.selectAllMember",vo);
+		List<MemberVO> list = selectList("member.searchMember",vo);
 		
 		return list;
 	}

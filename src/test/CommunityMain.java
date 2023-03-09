@@ -164,7 +164,9 @@ public class CommunityMain {
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 		
 		BoardVO bv = new BoardVO();
+
 		bv.setIsNotice("Y");
+
 		bv.setBoardID("CB");
 		List<BoardVO> noticeList = projectService.selectAllBoard(bv);
 		
