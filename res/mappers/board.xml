@@ -22,7 +22,7 @@
 		select *
 		from board
 		where 1=1
-		<if test="boardNo != null and boardNo != ''">
+		<if test="boardNo != 0 and boardNo != ''">
 			and board_no = #{boardNo}
 		</if>
 		<if test="title != null and title != ''">
@@ -40,6 +40,9 @@
 		<if test="isNotice != null and isNotice != ''">
 			and is_notice = #{isNotice}
 		</if>
+		<if test="hits != null and hits != ''">
+			and board_hits = #{hits}
+		</if>
 		<if test="content != null and content != ''">
 			and board_content like '%' || #{content} || '%'
 		</if>
@@ -52,7 +55,7 @@
 	</select>
 
 	<select id="readBoard" resultMap="boardMap">
-		select * from board where board_no = #{boardNO}
+		select * from board where board_no = #{boardNo}
 	</select>
 	
 	<select id="checkBoard" resultType="int">

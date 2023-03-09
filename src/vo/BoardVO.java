@@ -8,8 +8,8 @@ public class BoardVO {
 	private String title;
 	private String memberID;
 	private String writer;
-	private Date date;       // SYSDATE
-	private boolean isNotice;  // Y or N
+	private String date;       // SYSDATE
+	private String isNotice;  // Y or N
 	private int hits;
 	private String content;
 	private String boardID;
@@ -39,16 +39,16 @@ public class BoardVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public boolean isNotice() {
+	public String isNotice() {
 		return isNotice;
 	}
-	public void setNotice(boolean isNotice) {
+	public void setIsNotice(String isNotice) {
 		this.isNotice = isNotice;
 	}
 	public int getHits() {
