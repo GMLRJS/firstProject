@@ -48,7 +48,7 @@ public class BoardVO {
 	public String isNotice() {
 		return isNotice;
 	}
-	public void setNotice(String isNotice) {
+	public void setIsNotice(String isNotice) {
 		this.isNotice = isNotice;
 	}
 	public int getHits() {

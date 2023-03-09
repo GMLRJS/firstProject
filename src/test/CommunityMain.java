@@ -164,7 +164,9 @@ public class CommunityMain {
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 		
 		BoardVO bv = new BoardVO();
-		bv.setNotice("Y");
+
+		bv.setIsNotice("Y");
+
 		bv.setBoardID("CB");
 		List<BoardVO> noticeList = projectService.selectAllBoard(bv);
 		
@@ -181,7 +183,7 @@ public class CommunityMain {
 		}
 		
 		BoardVO bv3 = new BoardVO();
-		bv3.setNotice("N");
+		bv3.setIsNotice("N");
 		bv3.setBoardID("CB");
 		List<BoardVO> boardList = projectService.selectAllBoard(bv3);
 		
@@ -331,7 +333,7 @@ public class CommunityMain {
 		
 		BoardVO bv = new BoardVO();
 		bv.setBoardID("FB");
-		bv.setNotice("N");
+		bv.setIsNotice("N");
 		bv.setMemberID("LKB93");  // 현재 접속한 사람의 아이디를 가져오도록 변경
 		bv.setTitle(boardTitle);
 		bv.setWriter(boardWriter);
@@ -356,7 +358,7 @@ public class CommunityMain {
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 		
 		BoardVO bv = new BoardVO();
-		bv.setNotice("Y");
+		bv.setIsNotice("Y");
 		bv.setBoardID("FB");
 		List<BoardVO> noticeList = projectService.selectAllBoard(bv);
 		
@@ -372,7 +374,7 @@ public class CommunityMain {
 		}
 		
 		BoardVO bv3 = new BoardVO();
-		bv3.setNotice("N");
+		bv3.setIsNotice("N");
 		bv3.setBoardID("FB");
 		List<BoardVO> boardList = projectService.selectAllBoard(bv3);
 		
