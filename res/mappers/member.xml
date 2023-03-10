@@ -92,10 +92,7 @@
 	</select>
 	
 	<select id="searchMember" resultMap="memMap" parameterType="memberVO">
-		SELECT * FROM MEMBER WHERE 1=1 
-		<if test="isActive != null and isActive != ''">
-		 	AND IS_ACTIVE = #{isActive}
-		 </if>
+		SELECT * FROM MEMBER WHERE 1=1
 		 <if test="memberID != null and memberID != ''">
 		 	AND MEM_ID = #{memberID}
 		 </if>
@@ -110,6 +107,9 @@
 		 </if>
 		 <if test="birth != null and birth != ''">
 		 	AND MEM_BIRTH = #{birth}
+		 </if>
+		 <if test="isActive != null and isActive != ''">
+		 	AND IS_ACTIVE = #{isActive}
 		 </if>
 		 <if test="curriculumID != null and curriculumID != ''">
 		 	AND CURRI_ID = #{curriculumID}

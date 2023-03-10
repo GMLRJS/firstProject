@@ -10,16 +10,13 @@ import service.InterfaceService;
 import service.ProjectService;
 import vo.BoardVO;
 import vo.CommentVO;
-
 import vo.MemberVO;
 
 public class CommunityMain {
 	
 	private static CommunityMain coummunityMain;
 	private InterfaceService projectService;
-
 	private MemberVO myAccount = LoginPage.myAccount;
-
 	private Scanner scan;
 	
 	private CommunityMain() {
@@ -76,49 +73,11 @@ public class CommunityMain {
 
 
 
-
 	//============================================= 자유게시판 ============================================
 	
-
+<<<<<<< HEAD
 	// 자유게시판 메뉴
-
-	// 상담게시판
-	private void counselingBoard() {
-
-		String choice;
-		do {
-			displayMenu();
-			choice = scan.nextLine();
-			switch (choice){
-				case "1" :   // 전체 게시글 목록
-					displayAllCB();
-					break;
-				case "2" :   // 게시글 열람
-					readBoardCB();
-					break;
-				case "3" :   // 게시글 검색
-//					searchCBMenu();
-					break;
-				case "4" :   // 게시글 작성
-//					registCB();
-					break;
-				case "5" :   // 게시글 수정
-//					modifyCB();
-					break;
-				case "6" :   // 게시글 삭제
-//					removeCB();
-					break;
-				case "0" :
-//					displayCB();  // 뒤로가기 (게시판 선택 메뉴)
-					break;
-				default :
-					System.out.println("잘못 입력했습니다. 다시 입력하세요");
-			}
-		} while (choice != "0");
-		
-	}
-	
-
+=======
 	// 상담게시판 게시글 열람    =>   작성자와 선생님만 가능하도록 수정
 	private void readBoardCB() {
 		
@@ -219,8 +178,7 @@ public class CommunityMain {
 	}
 
 	// 자유게시판
-
-
+>>>>>>> 675d8f427d7f6415f8966a93957c89e218e24328
 	private void freeBoard() {
 		
 		String choice;
@@ -254,14 +212,8 @@ public class CommunityMain {
 			}
 		} while (choice != "0");
 	}
-
 	
 	// 게시글 삭제
-
-
-	
-	// 자유게시판 게시글 삭제
-
 	private void removeBoard() {
 		
 		boolean isExist = false;
@@ -286,7 +238,6 @@ public class CommunityMain {
 			}
 		} while (!isExist);
 		
-
 		String memberID = myAccount.getMemberID();
 		
 		BoardVO bv = new BoardVO();
@@ -310,18 +261,6 @@ public class CommunityMain {
 	}
 
 	// 게시글 수정
-
-		boolean b = projectService.deleteBoard(boardNo);
-		
-		if (b == true) {
-			System.out.println("게시글을 삭제했습니다.");
-		} else {
-			System.out.println("게시글을 삭제할 수 없습니다.");
-		}
-	}
-
-	// 자유게시판 게시글 수정
-
 	private void modifyBoard() {
 		
 		boolean isExist = false;
@@ -346,7 +285,6 @@ public class CommunityMain {
 			}
 		} while (!isExist);
 		
-
 		String memberID = myAccount.getMemberID();
 		
 		BoardVO bv = new BoardVO();
@@ -376,34 +314,14 @@ public class CommunityMain {
 			}
 		} else {
 			System.out.println("본인이 작성한 게시물만 수정할 수 있습니다.");
-
-		System.out.print("수정할 게시글 제목 >> ");
-		String boardTitle = scan.nextLine();
-		System.out.print("수정할 게시글 내용 >> ");
-		String boardContent = scan.nextLine();
-		
-		BoardVO bv = new BoardVO();
-		bv.setBoardNo(boardNo);
-		bv.setTitle(boardTitle);
-		bv.setContent(boardContent);
-		
-		boolean b = projectService.updateBoard_Tit_Con(bv);
-		
-		if (b == true) {
-			System.out.println("게시글을 수정했습니다.");
-		} else {
-			System.out.println("게시글을 수정할 수 없습니다.");
-
 		}
 	}
 
 	// 자유게시판 게시글 작성
 	private void registBoard() {
-
 		
 		String memberID = myAccount.getMemberID();
 		
-
 		System.out.println();
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 		System.out.println("[ 게시글 작성 ]");
@@ -418,11 +336,7 @@ public class CommunityMain {
 		BoardVO bv = new BoardVO();
 		bv.setBoardID("FB");
 		bv.setIsNotice("N");
-
 		bv.setMemberID(memberID);  // 현재 접속한 사람의 아이디로 memberID 세팅
-
-		bv.setMemberID("LKB93");  // 현재 접속한 사람의 아이디를 가져오도록 변경
-
 		bv.setTitle(boardTitle);
 		bv.setWriter(boardWriter);
 		bv.setContent(boardContent);
@@ -432,11 +346,7 @@ public class CommunityMain {
 		if (b == true) {
 			System.out.println("게시글을 작성했습니다.");
 		} else {
-
 			System.out.println("게시글을 작성할 수 없습니다.");
-
-			System.out.println("게시글 작성에 실패했습니다.");
-
 		}
 	}
 
@@ -590,20 +500,14 @@ public class CommunityMain {
 	
 	// 댓글 작성 기능
 	public void registComment(int boardNo) {
-
+		
 		String memberID = myAccount.getMemberID();
-
-		System.out.print("아이디를 입력하세요.");  // id를 가져오도록 변경
-		String memberID = scan.nextLine();
-
 		System.out.println("댓글 내용을 입력하세요.");
 		String commentContent = scan.nextLine();
 		
 		CommentVO cv = new CommentVO();
 		cv.setBoardNo(boardNo);
-
 		cv.setMemberID(memberID);  // 댓글 작성자 ID 세팅
-		cv.setMemberID(memberID);
 		cv.setCommentContent(commentContent);
 		
 		boolean b = projectService.insertComment(cv);
@@ -667,19 +571,6 @@ public class CommunityMain {
 			System.out.println("본인이 작성한 댓글만 수정할 수 있습니다.");
 		}
 		
-		System.out.print("수정할 댓글 내용 : ");
-		String commentContent = scan.nextLine();
-		CommentVO cv = new CommentVO();
-		cv.setCommentNo(commentNo);
-		cv.setCommentContent(commentContent);
-		
-		boolean b = projectService.updateComment(cv);
-		
-		if (b == true) {
-			System.out.println("댓글을 수정했습니다.");
-		} else {
-			System.out.println("댓글을 수정할 수 없습니다.");
-		}
 	}
 	
 	// 댓글 삭제 기능
@@ -726,12 +617,6 @@ public class CommunityMain {
 			}
 		} else {
 			System.out.println("본인이 작성한 댓글만 삭제할 수 있습니다.");
-		boolean b = projectService.deleteComment(commentNo);
-		
-		if (b == true) {
-			System.out.println("댓글을 삭제했습니다.");
-		} else {
-			System.out.println("댓글을 삭제할 수 없습니다.");
 		}
 	}
 	

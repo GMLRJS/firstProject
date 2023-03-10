@@ -206,7 +206,7 @@ public class LoginPage {
 			}
 		}
 	}
-	
+
 	private String inputQuestion() {
 		while (true) {
 			System.out.println();

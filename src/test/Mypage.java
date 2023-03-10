@@ -16,7 +16,7 @@ public class Mypage {
 
 	private InterfaceService projectService;
 	private Scanner scan;
-	public MemberVO myAccount = LoginPage.myAccount;
+	public static MemberVO myAccount;
 
 	public Mypage() {
 
@@ -87,8 +87,6 @@ public class Mypage {
 			int Ddays = (int) (calculate / (24 * 60 * 60 * 1000));
 			System.out.println("--------------------------------------------------------------------------------");
 			System.out.println("과정명 : " + myCurriculum.getCurriculumName());
-			System.out.println("시작날짜 : "+ myCurriculum.getStartDate().substring(0,10));
-			System.out.println("수료날짜 : "+ myCurriculum.getEndDate().substring(0,10));
 			System.out.println("수료까지 남은 날짜 : " + Ddays + "일");
 			System.out.println("");
 			System.out.println("[0] 뒤로 가기");
@@ -169,7 +167,7 @@ public class Mypage {
 			String isWithdraw = scan.nextLine();
 
 			if (isWithdraw.equals("네") || isWithdraw.equals("yes") || isWithdraw.equals("y")) {
-				myAccount.setActive("Q");
+				myAccount.setActive(isWithdraw);
 			} else if (isWithdraw.equals("0")) {
 				return;
 			} else {

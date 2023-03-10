@@ -1,6 +1,6 @@
 package vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class BoardVO {
 	
@@ -8,8 +8,8 @@ public class BoardVO {
 	private String title;
 	private String memberID;
 	private String writer;
-	private String date;       // SYSDATE
-	private String isNotice;  // Y or N
+	private Date date;       // SYSDATE
+	private boolean isNotice;  // Y or N
 	private int hits;
 	private String content;
 	private String boardID;
@@ -39,16 +39,16 @@ public class BoardVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String isNotice() {
+	public boolean isNotice() {
 		return isNotice;
 	}
-	public void setIsNotice(String isNotice) {
+	public void setNotice(boolean isNotice) {
 		this.isNotice = isNotice;
 	}
 	public int getHits() {
