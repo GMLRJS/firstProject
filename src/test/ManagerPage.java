@@ -30,6 +30,7 @@ public class ManagerPage {
 
 	}
 
+	
 	public void start() {
 
 		int choice;
