@@ -40,7 +40,7 @@
 	</select>
 	
 	<select id="selectBoardList" resultMap="boardMap">
-		SELECT * FROM BOARD_LIST WHERE BL_ID = #{boardListId}
+		SELECT * FROM BOARD_LIST WHERE BL_ID = #{boardID}
 	</select>
 	
 	<select id="checkBoardList" resultType="int">

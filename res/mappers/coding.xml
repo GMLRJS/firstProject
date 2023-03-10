@@ -25,7 +25,7 @@
  	</update>
  	
  	<delete id="deleteCoding" parameterType="int">
- 		DELETE FROM CODING WHERE CODING_PROBLEMNO = #{problemNo}
+ 		DELETE FROM CODING WHERE CODING_NO = #{problemNo}
  	</delete>
  	
  	<select id="selectAllCoding" resultMap="codingMap">
@@ -34,7 +34,7 @@
  	</select>
  	
  	<select id="selectOneCoding" resultMap="codingMap" parameterType="int">
- 		SELECT * FROM CODING WHERE CODING_PROBLEMNO = #{problemNo}
+ 		SELECT * FROM CODING WHERE CODING_NO = #{problemNo}
  	</select>
  	
  	<select id="selectCoding" resultMap="codingMap">
