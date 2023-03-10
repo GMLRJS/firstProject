@@ -24,7 +24,7 @@ public class LoginPage {
 		projectService = new ProjectService();
 		scan = new Scanner(System.in);
 
-	}//
+	}
 
 	// 첫 로그인 화면을 출력하는 메소드
 	public void displayMenu() {

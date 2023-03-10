@@ -34,7 +34,7 @@ public class CommunityMain {
 		return coummunityMain;
 	}
 	
-	// 게시판 선택 메뉴 출력 
+	// 게시판 선택 메뉴 출력
 	public void displayBoard() {
 		
 		System.out.println();
