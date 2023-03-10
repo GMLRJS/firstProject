@@ -273,7 +273,7 @@ public interface InterfaceService {
 	 * @param commentNo 댓글번호를 입력받는다.
 	 * @return 댓글정보가 담긴 vo
 	 */
-	public CommentVO selectComment(int commentNo);
+	public CommentVO selectComment(CommentVO vo);
 	
 	/**
 	 * 댓글을 입력하는 메소드

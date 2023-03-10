@@ -395,9 +395,9 @@ public class ProjectService implements InterfaceService {
 	}
 
 	@Override
-	public CommentVO selectComment(int commentNo) {
+	public CommentVO selectComment(CommentVO cv) {
 
-		CommentVO vo = commentService.selectComment(commentNo);
+		CommentVO vo = commentService.selectComment(cv);
 
 		return vo;
 	}
