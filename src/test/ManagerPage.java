@@ -7,7 +7,6 @@ import service.InterfaceService;
 import service.ProjectService;
 import vo.BoardVO;
 import vo.CommentVO;
-import vo.CurriculumVO;
 import vo.MemberVO;
 
 public class ManagerPage {
@@ -31,6 +30,7 @@ public class ManagerPage {
 
 	}
 
+	
 	public void start() {
 
 		int choice;
@@ -278,41 +278,13 @@ public class ManagerPage {
 			System.out.println("--------------------------------------------------------------------------------");
 			System.out.println("수정할 상담 게시물의 번호를 입력해주세요.");
 			System.out.println("입력 : ");
-			String boardNo = scan.nextLine();
-			try {
-				int no = Integer.parseInt(boardNo);
-				if (projectService.checkBoard(no)==1) {
-					BoardVO vo = projectService.selectBoard(no);
+			String choice = scan.nextLine();
 
-					System.out.println("제목 : " + vo.getTitle());
-					System.out.print("제목 : ");
-					String title = scan.nextLine();
-					System.out.println("내용 : " + vo.getContent());
-					System.out.print("내용 : ");
-					String content = scan.nextLine();
-
-					BoardVO vo2 = new BoardVO();
-					vo2.setBoardNo(vo.getBoardNo());
-					vo2.setTitle(title);
-					vo2.setContent(content);
-
-					if (projectService.updateBoard_Tit_Con(vo2)) {
-						System.out.println("수정이 완료되었습니다.");
-						return;
-					} else {
-						System.out.println("수정에 실패하였습니다.");
-						return;
-					}
-				}
-
-			} catch (Exception e) {
-				System.out.println("잘못된 입력입니다.");
-				continue;
-			}
-
+			
 		}
 
 	}
+
 
 	private void writeComment() {
 		while (true) {
@@ -324,7 +296,7 @@ public class ManagerPage {
 
 			try {
 				int no = Integer.parseInt(boardNo);
-				if (projectService.checkBoard(no)==1) {
+				if (projectService.checkBoard(no) > 0) {
 					BoardVO vo = projectService.selectBoard(no);
 					System.out.println("게시물 : " + vo.getTitle());
 					System.out.print("댓글 : ");
@@ -362,170 +334,9 @@ public class ManagerPage {
 	}
 
 	private void infoManager() {
-		while (true) {
-
-			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
-			System.out.println("[1] 전체 학생 조회\t[2] 학생 검색\t\t[0] 뒤로 가기");
-			System.out.print("입력 : ");
-			String choice = scan.nextLine();
-
-			switch (choice) {
-			case "1":
-				;
-				allStudent();
-				break;
-			case "2":
-				searchStudent();
-				break;
-			case "0":
-
-				return;
-			default:
-				System.out.println("잘못된 입력입니다.");
-				continue;
-			}
-
-		}
-	}
-
-	private void searchStudent() {
-		while (true) {
-			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
-			System.out.println("검색할 학생 정보를 선택해주세요.");
-			System.out.println("[1] 이름\t[2] 성별 [3] 과정\t\t[0] 뒤로 가기");
-			System.out.print("입력 : ");
-			String choice = scan.nextLine();
-			switch (choice) {
-			case "1":
-				selectByName();
-				break;
-			case "2":
-				selectByGender();
-				break;
-			case "3":
-				selectByCurri();
-				break;
-			case "0":
-
-				return;
-
-			default:
-				System.out.println("잘못된 입력입니다.");
-				continue;
-			}
-		}
-
-	}
-
-	private void selectByCurri() {
 		System.out.println();
 		System.out.println("--------------------------------------------------------------------------------");
-		System.out.print("과정명 : ");
-		String curri = scan.nextLine();
-
-		List<CurriculumVO> list = projectService.selectCurriculum();
-
-		for (CurriculumVO curriculum : list) {
-			if (curriculum.getCurriculumName().startsWith(curri)) {
-				System.out.println("검색된 과정 : " + curriculum.getCurriculumName());
-				MemberVO imsi = new MemberVO();
-				imsi.setCurriculumID(curriculum.getCurriculumID());
-				List<MemberVO> memlist = projectService.selectAllMember(imsi);
-				for (MemberVO member : memlist) {
-					System.out.println();
-					System.out.println("회원ID\t이름\t성별\t전화번호\t\t생년월일\t과정ID");
-					System.out.println(member.getMemberID() + "\t" + member.getName() + "\t" + member.getGender() + "\t"
-							+ member.getPhoneNum() + "\t\t" + member.getBirth() + "\t" + member.getCurriculumID());
-
-				}
-				System.out.println("--------------------------------------------------------------------------------");
-				System.out.println("[0] 뒤로 가기");
-				System.out.print("입력 : ");
-				String input = scan.nextLine();
-			}
-
-		}
-
-	}
-
-	private void selectByGender() {
 		System.out.println();
-		System.out.println("--------------------------------------------------------------------------------");
-		System.out.print("성별 : ");
-		String gender = scan.nextLine();
-
-		if (gender.equals("남자") || gender.equals("남") || gender.equals("M") || gender.equals("m")) {
-			MemberVO man = new MemberVO();
-			man.setGender("M");
-			List<MemberVO> manList = projectService.selectAllMember(man);
-
-			for (MemberVO manMember : manList) {
-				System.out.println();
-				System.out.println("회원ID\t이름\t성별\t전화번호\t\t생년월일\t과정ID");
-				System.out.println(manMember.getMemberID() + "\t" + manMember.getName() + "\t" + manMember.getGender()
-						+ "\t" + manMember.getPhoneNum() + "\t\t" + manMember.getBirth() + "\t"
-						+ manMember.getCurriculumID());
-			}
-			System.out.println("--------------------------------------------------------------------------------");
-
-		} else if (gender.equals("여자") || gender.equals("여") || gender.equals("W") || gender.equals("w")) {
-
-			MemberVO man = new MemberVO();
-			man.setGender("W");
-			List<MemberVO> manList = projectService.selectAllMember(man);
-
-			for (MemberVO manMember : manList) {
-				System.out.println();
-				System.out.println("회원ID\t이름\t성별\t전화번호\t\t생년월일\t과정ID");
-				System.out.println(manMember.getMemberID() + "\t" + manMember.getName() + "\t" + manMember.getGender()
-						+ "\t" + manMember.getPhoneNum() + "\t\t" + manMember.getBirth() + "\t"
-						+ manMember.getCurriculumID());
-			}
-			System.out.println("--------------------------------------------------------------------------------");
-
-		} else {
-			System.out.println("잘못된 입력입니다.");
-
-		}
-
-	}
-
-	private void selectByName() {
-
-		System.out.println();
-		System.out.println("--------------------------------------------------------------------------------");
-		System.out.print("이름 : ");
-		String name = scan.nextLine();
-
-		if (name != null || name.equals(" ")) {
-			MemberVO member = new MemberVO();
-			member.setName(name);
-			List<MemberVO> memInfo = projectService.selectAllMember(member);
-			System.out.println("회원ID\t이름\t성별\t전화번호\t\t생년월일\t과정ID");
-			for (MemberVO memList : memInfo) {
-				System.out.println(memList.getMemberID() + "\t" + memList.getName() + "\t" + memList.getGender() + "\t"
-						+ memList.getPhoneNum() + "\t\t" + memList.getBirth() + "\t" + memList.getCurriculumID());
-			}
-			System.out.println("--------------------------------------------------------------------------------");
-
-		} else {
-			System.out.println("잘못된 입력입니다.");
-		}
-	}
-
-	private void allStudent() {
-		System.out.println();
-		System.out.println("--------------------------------------------------------------------------------");
-		System.out.println("회원ID\t이름\t성별\t전화번호\t\t생년월일\t과정ID");
-		List<MemberVO> memberlist = projectService.selectAllMember();
-		for (MemberVO vo : memberlist) {
-			System.out.println(vo.getMemberID() + "\t" + vo.getName() + "\t" + vo.getGender() + "\t" + vo.getPhoneNum()
-					+ "\t\t" + vo.getBirth() + "\t" + vo.getCurriculumID());
-
-		}
-		System.out.println("--------------------------------------------------------------------------------");
 
 	}
 
