@@ -51,6 +51,12 @@
 	</select>
 	
 	<select id="selectComment" resultMap="commentMap">
-		select * from comments where comment_no = #{commentNo}
+	
+		select *
+		  from comments
+		 where comment_no = #{commentNo}
+		   and mem_id = #{memberID}
+		   
 	</select>
+	
 </mapper>

@@ -58,9 +58,9 @@ public class CommentDAO extends MyBatisDAO {
 		return CommentList;
 	}
 	
-	public CommentVO selectComment(int commentNo) {
+	public CommentVO selectComment(CommentVO cv) {
 		
-		CommentVO vo = selectOne("commeny.selectComment", commentNo);
+		CommentVO vo = selectOne("comment.selectComment", cv);
 		
 		return vo;
 	}
