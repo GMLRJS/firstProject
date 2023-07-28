@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cding">
-	<resultMap type="subjectVO" id="subjectMap">
-		<result column="SUBJECT_ID" property="subjectID"/>
-		<result column="SUBJECT_NAME" property="subjectName"/>
-	</resultMap>
+<mapper namespace="subject">
+
+
+	<insert id="insertSubject">
 	
-	<insert id="insertSubject" parameterType="subjectVO">
-	INSERT INTO SUBJECT (SUBJECT_ID, SUBJECT_NAME)
-			VALUES (#{subjectID}, #{subjectName})
+	insert into SUBJECT (SUBJECT_ID, SUBJECT_NAME)
+	
+	values (#{subjectID}, #{subjectName})
 	</insert>
 	
-	<update id="updateSubject" parameterType="subjectVO">
-	UPDATE SUBJECT SET SUBJECT_NAME = #{subjectName} WHERE SUBJECT_ID = #{subjectID}
+	<update id="updateSubject">
+	
+	update SUBJECT 
+	set    SUBJECT_NAME = #{subjectName}					   		   
+	 where SUBJECT_ID = #{subjectID}
+	 
+					  
  	</update>
  	
+ 	<select id="checkSubject" parameterType="String" resultType="int">
+ 	
+ 	select count(*) as cnt
+ 	 from SUBJECT 
+ 	 where SUBJECT_ID = #{subjectID}
+ 	
+ 	</select>
+ 	
  	<delete id="deleteSubject" parameterType="String">
- 		DELETE FROM SUBJECT WHERE SUBJECT_ID = #{subjectID}
+ 	
+ 		delete from SUBJECT where SUBJECT_ID = #{subjectID}
+ 		
  	</delete>
-	<select id="checkSubject" resultMap="subjectMap">
-		SELECT COUNT(*) as cnt FROM SUBJECT WHERE SUBJECT_ID = #{subjectID}
-	</select>
-	
-	<select id="selectAllSubject" resultMap="subjectMap">
-		SELECT * FROM SUBJECT
-	</select>
-	
-	<select id="selectOneSubject" parameterType="String" resultMap="subjectMap">
-		SELECT * FROM SUBJECT WHERE SUBJECT_ID = #{subjectID}
-	</select>
-	<select id="selectSubject" resultMap="subjectMap">
-		SELECT * FROM SUBJECT WHERE 1=1
-		<if test="subjectName != null and subjectName !=''">
-			AND SUBJECT_NAME Like '%'||#{subjectName}||'%'
-		</if>
-	</select>
-	
+ 	
+
 </mapper>

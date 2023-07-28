@@ -8,8 +8,8 @@
 		<result column="Q_ANSWER" property="answer"/>
 	</resultMap>
 	
-	<select id="selectQuestion" resultMap = "questionMap" parameterType="String">
-		SELECT * FROM QUESTION WHERE MEM_ID = #{memberID};
+	<select id="selectQuestion" resultMap = "questionMap" parameterType="questionVO">
+		SELECT * FROM QUESTION WHERE MEM_ID = #{memberID}
 	</select>
 	
 	<insert id="insertQuestion" parameterType="questionVO">

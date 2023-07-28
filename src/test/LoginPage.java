@@ -28,44 +28,89 @@ public class LoginPage {
 
 	// 첫 로그인 화면을 출력하는 메소드
 	public void displayMenu() {
-
+		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("      _____     _____      __  ______                    __        _           ____        __      __      ____      _____ ");
+		System.out.println("      /    )    /    )     /     /          /    /     /    )     //           /   )     /    )    / |     /    )    /    )");
+		System.out.println("     /    /    /    /     /     /          /____/     /    /      /           /__ /     /    /    /__|    /___ /    /    / ");
+		System.out.println("    /    /    /    /     /     /               /     /    /      /           /    )    /    /    /   |   /    |    /    /");
+		System.out.println("___/____/____/____/___ _/_ ___/_______________/_____(____/______/___________/____/____(____/____/____|__/_____|___/____/___");
+		
+		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 		System.out.println();
-		System.out.println("--------------------------------------------------------------------------------");
+		System.out.println("                    ____       ____       ______      ______               __ __         __        _");
+		System.out.println("                   /\\  _`\\    /\\  _`\\    /\\__  _\\    /\\__  _\\             /\\ \\\\ \\      /'__`\\    /' \\");
+		System.out.println("                   \\ \\ \\/\\ \\  \\ \\ \\/\\ \\  \\/_/\\ \\/    \\/_/\\ \\/             \\ \\ \\\\ \\    /\\ \\/\\ \\  /\\_, \\");
+		System.out.println("                    \\ \\ \\ \\ \\  \\ \\ \\ \\ \\    \\ \\ \\       \\ \\ \\              \\ \\ \\\\ \\_  \\ \\ \\ \\ \\ \\/_/\\ \\");
+		System.out.println("                     \\ \\ \\_\\ \\  \\ \\ \\_\\ \\    \\_\\ \\__     \\ \\ \\              \\ \\__ ,__\\ \\ \\ \\_\\ \\   \\ \\ \\");
+		System.out.println("                      \\ \\____/   \\ \\____/    /\\_____\\     \\ \\_\\              \\/_/\\_\\_/  \\ \\____/    \\ \\_\\");
+		System.out.println("                       \\/___/     \\/___/     \\/_____/      \\/_/                 \\/_/     \\/___/      \\/_/");
+		System.out.println();
+		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣠⣤⣤⣤⣤⣤⣤⣤⣀⡀⠀⠀");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣶⡿⠿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⢿⣷⣄");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⣿⣯⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀  ⠘⣿⣆⠀");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣾⡿⢿⣧⡀  ⢸⣿⠀");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣯⠀⠀⢀⣤⣾⡿⠟⠛⠛⠋⠁⠀⠈⢿⣧⣾⡿⠀");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣧⣾⡿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀  ⣿⡇⠁");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀ ⠀⣠⣿  ---   ---  ⣿⣷");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀ ⠀⠀⣿⣏  <>    <>    ⣾⡇");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠘⠻⣿    ;       ⣤⠋");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠈⢿⣧⠀⠀ ___⠀⠀⠀⠀⢰⣿⠏");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⣠⣤⣤⣤⣤⣼⣿⣧⣤⣤⣤⣤⣤⣤⣤⣤⣿⣯⣤⣤⣤⣤⣤⡀⠀");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠟⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠛⣿⣆");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀   ⠀⠀⠀  ⠀⣿⣿");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀            ⠀⠀  ⠀⣿⣿⣦⣄");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⠟⢹⣿⠀⠀⠀⠀⠀⠀⠀             ⠀⠀⠀  ⠀⣿⣿⠙⢿⣷⡀");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠃⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀    ⠀⣿⣿⠀⠀⢻⣷");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀  ⠀  ⣿⣿⠀⠀⢸⣿⡇");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣇⣀⣀⣸⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣿⣿⣀⣀⣸⣿⡇⠀");
+		System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠁⠀");
+		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println();
+		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 		System.out.println("[1] 로그인\t[2] 회원가입\t[3] 계정찾기\t\t[0]프로그램 종료");
-		System.out.println("--------------------------------------------------------------------------------");
+		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 
 	}
 
 	public void start() {
 
-		int choice;
+		String choice;
 
 		while (true) {
 
 			displayMenu();
 			System.out.println();
-			System.out.print("입력 : ");
+			System.out.print(">> ");
+			choice = scan.nextLine();
 			try {
-				choice = Integer.parseInt(scan.nextLine());
+				
 
 				switch (choice) {
-				case 1: // 로그인 메소드 호출
+				case "1": // 로그인 메소드 호출
 					log_in();
-					return;
-				case 2: // 회원가입 메소드 호출
+					
+					continue;
+				case "2": // 회원가입 메소드 호출
 					registration();
-					break;
-				case 3: // 계정찾기 메소드 호출
+					continue;
+				case "3": // 계정찾기 메소드 호출
 					findAccount();
-				case 0:
-					scan.close();
-					return;
+					continue;
+				case "0":
+					
+					System.exit(0);
 
 				default:
-					System.out.println("번호를 잘못 입력했습니다. 다시입력해주세요");
+					System.out.println("잘못 입력하셨습니다.");
+					System.out.println("다시 입력해주세요.");
 				} // switch문 종료
 			} catch (Exception e) {
-				System.out.println("다시 입력해주세요.");
+				//System.out.println("다시 입력해주세요.");
+				e.printStackTrace();
 				continue;
 			}
 
@@ -75,20 +120,21 @@ public class LoginPage {
 	private void findAccount() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
-			System.out.print("아이디 :");
-			String id = scan.nextLine().replaceAll(" ", "");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+			System.out.print("아이디 : ");
+			String id = scan.nextLine();
 
 			if (!projectService.checkMember(id)) {
 				System.out.println("존재하지 않는 아이디입니다.");
-				return;
-			}
+				continue;
+			}else {
+				
 			QuestionVO vo = projectService.selectQuestion(id);
 
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 
-			System.out.println("질문 :" + vo.getQuestion());
+			System.out.println("질문 : " + vo.getQuestion());
 			System.out.print("정답 : ");
 			String val = scan.nextLine().trim();
 
@@ -108,6 +154,7 @@ public class LoginPage {
 			} else {
 				System.out.println("정답이 아닙니다.");
 			}
+			}
 
 		} // while문 종료
 
@@ -116,11 +163,11 @@ public class LoginPage {
 	public void log_in() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.print("아이디 : ");
 			String id = scan.nextLine();
 
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.print("비밀번호 : ");
 			String pass = scan.nextLine();
 
@@ -131,8 +178,12 @@ public class LoginPage {
 				if (myAccount.getPassword().equals(pass)) {
 
 					System.out.println("로그인 완료");
-//asdasdadsasdas
+					
+					
+					serviceStart();
 					return;
+					
+					
 				} else {
 					System.out.println("비밀번호를 확인해주세요.");
 				}
@@ -181,7 +232,7 @@ public class LoginPage {
 			if (projectService.insertQuestion(question)) {
 
 				System.out.println("회원가입에 성공했습니다.");
-				System.out.println("담당자의 승인 후 로그인 가능합니다.");
+				System.out.println("가입 승인을 기다려주세요.");
 				return;
 			}
 		} else {
@@ -194,7 +245,7 @@ public class LoginPage {
 	private String inputAnswer() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.println("계정 찾기 질문의 정답을 입력해주세요");
 			System.out.println("정답 : ");
 			String answer = scan.nextLine();
@@ -202,7 +253,7 @@ public class LoginPage {
 			if (!answer.equals(" ") && answer != null) {
 				return answer;
 			} else {
-				System.out.println("잘못된 입력입니다.");
+				System.out.println("잘못 입력하셨습니다.");
 			}
 		}
 	}
@@ -210,7 +261,7 @@ public class LoginPage {
 	private String inputQuestion() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.println("계정 찾기를 위한 질문을 입력해주세요");
 			System.out.println("질문 : ");
 			String question = scan.nextLine();
@@ -218,7 +269,7 @@ public class LoginPage {
 			if (!question.equals(" ") && question != null) {
 				return question;
 			} else {
-				System.out.println("잘못된 입력입니다.");
+				System.out.println("잘못 입력하셨습니다.");
 			}
 		}
 	}
@@ -226,7 +277,7 @@ public class LoginPage {
 	private String inputBirth() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.print("생년월일 : ");
 			String birth = scan.nextLine().replaceAll(" ", "");
 			birth = birth.replaceAll("-", "");
@@ -247,7 +298,7 @@ public class LoginPage {
 	private String inputCurri() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.print("과정명 : ");
 			String curri = scan.nextLine().trim();
 
@@ -256,7 +307,7 @@ public class LoginPage {
 
 			try {
 				int test = Integer.parseInt(curri);
-				System.out.println("잘못된 입력입니다.");
+				System.out.println("잘못 입력하셨습니다.");
 				continue;
 			} catch (Exception e) {
 			}
@@ -277,7 +328,7 @@ public class LoginPage {
 	private String inputPhoneNum() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.print("휴대폰 번호 : ");
 			String phone = scan.nextLine().replaceAll(" ", "");
 			phone = phone.replaceAll("-", "");
@@ -293,7 +344,7 @@ public class LoginPage {
 					System.out.println("올바른 숫자를 입력해주세요");
 				}
 			} else {
-				System.out.println("전화번호 열한자리를 입력해야 합니다. ex)010-0000-0000");
+				System.out.println("전화번호 열한자리를 입력해야 합니다. ex) 010-0000-0000");
 			}
 
 		}
@@ -303,7 +354,7 @@ public class LoginPage {
 	private String inputGender() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.print("성별 : ");
 			String gender = scan.nextLine().replaceAll(" ", "");
 			if (gender.equals("남") || gender.equals("남자")) {
@@ -319,30 +370,29 @@ public class LoginPage {
 	private String inputName() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.print("이름 : ");
 			String name = scan.nextLine().replaceAll(" ", "");
 
 			if (!name.isEmpty()) {
 				try {
 					int gar = Integer.parseInt(name);
-					System.out.println("잘못된 입력입니다.");
+					System.out.println("잘못 입력하셨습니다.");
 					continue;
 				} catch (Exception e) {
 				}
 				System.out.println("입력한 이름 : " + name);
 				return name;
 			} else {
-				System.out.println("잘못된 입력입니다.");
+				System.out.println("잘못 입력하셨습니다.");
 			}
 		}
-
 	}
 
 	private String inputPass() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.print("비밀번호 : ");
 			String pass = scan.nextLine().replaceAll(" ", "");
 
@@ -357,22 +407,21 @@ public class LoginPage {
 				System.out.println("입력한 비밀번호 : " + pass);
 				return pass;
 			} else { // 아무것도 입력하지 않을 경우
-				System.out.println("잘못된 입력입니다.");
+				System.out.println("잘못 입력하셨습니다.");
 			}
-
 		}
 	}
 
 	private String inputID() {
 		while (true) {
 			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 			System.out.print("아이디 :");
 			String name = scan.nextLine().replaceAll(" ", "");
 			if (!name.isEmpty()) {
 				try {
 					int gar = Integer.parseInt(name);
-					System.out.println("잘못된 입력입니다.");
+					System.out.println("잘못 입력하셨습니다.");
 					continue;
 				} catch (Exception e) {
 				} // 문자열 혹은 문자열과 숫자로 id입력시
@@ -384,15 +433,58 @@ public class LoginPage {
 				}
 
 			} else {
-				System.out.println("잘못된 입력입니다.");
+				System.out.println("잘못 입력하셨습니다.");
 			}
 		}
-
 	}
+	
+	
+	private void serviceStart() {
+		while(true) {
+			
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println("[1] 커뮤니티\t[2] 학습자료\t[3] 코딩 테스트\t[4] 마이 페이지\t[5] 관리자\t\t[0] 로그아웃");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+			System.out.print(">> ");
+			String choice = scan.nextLine();
+			
+			switch (choice) {
+			case "1":
+				CommunityPage.getInstance().choiceBoard();
+				continue;
+			case "2":
+				StudyPage.getInstance().studyBoard();
+				continue;
+			case "3":
+				new CodingPage().start();
+				continue;
+			case "4":
+				new Mypage().start();
+				continue;
+			case "5":
+				if(myAccount.getMemberID().startsWith("MASTER")) {
+					new ManagerPage().start();
+				}else {
+					System.out.println("권한이 없는 사용자입니다.");
+					
+				}
+				continue;
+			case "0":
+				System.out.println("로그아웃되었습니다.");
+				return;
 
+			default:
+				System.out.println("잘못 입력했습니다. 다시 입력하세요.");
+				continue;
+			}
+			
+			}
+			
+	}
+	
+	
 	public static void main(String[] args) {
 
 		new LoginPage().start();
-
 	}
 }

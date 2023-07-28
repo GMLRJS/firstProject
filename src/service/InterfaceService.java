@@ -29,7 +29,7 @@ public interface InterfaceService {
 	 */
 	public boolean checkMember(String id);
 	
-	
+	public boolean checkNMember(String id);
 	/**
 	 * 자기 자신의 정보를 조회할때 사용할 메소드
 	 * (마이페이지 등에서 정보 수정이나 게시물 확인시 사용예정)
@@ -37,6 +37,8 @@ public interface InterfaceService {
 	 * @return 회원가입시 입력했던 정보가 담겨있는 vo객체가 리턴된다.
 	 */
 	public MemberVO selectMyMember(String id);
+	
+	public MemberVO selectNO(String id);
 	
 	public boolean updateMember(MemberVO vo);
 	
@@ -273,7 +275,7 @@ public interface InterfaceService {
 	 * @param commentNo 댓글번호를 입력받는다.
 	 * @return 댓글정보가 담긴 vo
 	 */
-	public CommentVO selectComment(int commentNo);
+	public CommentVO selectComment(CommentVO vo);
 	
 	/**
 	 * 댓글을 입력하는 메소드
@@ -319,20 +321,6 @@ public interface InterfaceService {
 	public List<CodingTestVO> selectCodingTest(CodingTestVO vo);
 	
 	/**
-	 * 단 하나의 코딩 문제만 조회하는 메소드
-	 * @param no  문제의 번호를 입력받는다
-	 * @return 입력받은 문제 번호의 해당하는 문제 
-	 */
-	public CodingTestVO selectOneCodingTest(int no);
-	
-	/**
-	 * 특정 조건의 코딩 문제의 갯수를 조회하는 메소드 
-	 * @param vo  특정 코딩 문제 조건이 담긴 vo 객체
-	 * @return 문제 갯수
-	 */
-	public int checkCodingTest(CodingTestVO vo);
-	
-	/**
 	 * 코딩 문제를 등록하는 메소드
 	 * @param vo  코딩문제의 정보가 담긴 vo 객체
 	 * @return 새로운 문제 등록이 성공하면 1, 실패시 0 반환
@@ -353,11 +341,32 @@ public interface InterfaceService {
 	 */
 	public boolean deleteCodingTest(int no);
 	
+	/**
+	 * 코딩 문제의 레벨을 조회하는 메소드
+	 * @param vo 찾고 싶은 코딩 문제의 레벨을 입력
+	 * @return 문제의 내용을 반환
+	 */
+	public List<CodingTestVO> searchLevel(CodingTestVO vo);
+	
+	/**
+	 * 정답을 조회 여부를 선택하는 메소드
+	 * @param vo 문제의 제목과 레벨을 입력
+	 * @return 조회된 문제의 정답을 반환
+	 */
+	public List<CodingTestVO> choiceAnswer(CodingTestVO vo);
+	
+	/**
+	 * 코딩 문제를 검색하는 메소드
+	 * @param vo 문제의 제목, 레벨, 키워드, 과목코드를 입력
+	 * @return 조회된 문제의 전체 내용을 반환
+	 */
+	public List<CodingTestVO> searchCoding(CodingTestVO vo);
+	
 	
 	//============================================SubjectDAO=======================================================
 	
 	
-	public int checkSubject(String id);
+	public boolean checkSubject(String subjectId);
 	
 	
 	public List<SubjectVO> selectAllSubject();
