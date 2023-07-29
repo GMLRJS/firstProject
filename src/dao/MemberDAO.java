@@ -31,7 +31,12 @@ public class MemberDAO extends MyBatisDAO{
 		
 		return cnt;
 	}
-	
+	public int checkNo(String id) {
+		
+		int cnt = selectOne("member.checkNMember",id);
+		
+		return cnt;
+	}
 	/**
 	 *  자기자신의 정보를 조회할때 사용할 메소드 
 	 *  회원가입시 입력했던 정보가 나온다. 
@@ -46,6 +51,12 @@ public class MemberDAO extends MyBatisDAO{
 		return myVO;
 	}
 	
+	public MemberVO selectNo(String id) {
+		
+		MemberVO vo = selectOne("member.permissionNMember", id);
+		
+		return vo;
+	}
 	/**
 	 * 회원가입 메소드
 	 * 
@@ -149,7 +160,7 @@ public class MemberDAO extends MyBatisDAO{
 	
 	public List<MemberVO> selectAllMember(MemberVO vo){
 		
-		List<MemberVO> list = selectList("member.selectAllMember",vo);
+		List<MemberVO> list = selectList("member.searchMember",vo);
 		
 		return list;
 	}

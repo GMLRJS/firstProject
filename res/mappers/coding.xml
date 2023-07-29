@@ -1,84 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="coding">
+
+	<insert id="insertCoding" parameterType="vo.CodingTestVO">
 	
-	<resultMap type="codingTestVO" id="codingMap">
-		<result column="CODING_NO" property="prolemNo"/>
-		<result column="CODING_TITLE" property="title"/>
-		<result column="CODING_LEVEL" property="levell"/>
-		<result column="CODING_CONTENT" property="codingContent"/>
-		<result column="CODING_ANSWER" property="answer"/>
-		<result column="SUBJECT_ID" property="subjectID"/>
-		<result column="CODING_DATE" property="date"/>
-	</resultMap>
+	insert into CODING (CODING_TITLE, CODING_NO, CODING_LEVEL, CODING_CONTENT, SUBJECT_ID, CODING_ANSWER, CODING_DATE)
 	
-	<insert id="insertCoding" parameterType="codingTestVO">
-	INSERT INTO CODING (CODING_NO, CODING_TITLE, CODING_NO, CODING_LEVEL, CODING_CONTENT, SUBJECT_ID)
-		VALUES (CODING_SQ.NEXTVAL,#{title},#{levell},#{codingContent},#{answer},#{subjectID})
+	values (#{title}, CODING_SEQ.nextval, #{levell}, #{codingContent}, #{subjectID}, #{answer}, SYSDATE) 
 	</insert>
 	
-	<update id="updateCoding" parameterType="codingTestVO">
 	
-	UPDATE CODING SET CODING_TITLE = #{title}, CODING_LEVEL = #{levell}, CODING_CONTENT = #{codingContent}, 
-						CODING_ANSWER = #{answer}, SUBJECT_ID = #{subjectID} 
+	<update id="updateCoding" parameterType="vo.CodingTestVO">
+	update CODING set CODING_CONTENT = #{codingContent}, 
+					  CODING_TITLE = #{title},
+					  CODING_LEVEL = #{levell}, 
+					  CODING_ANSWER = #{answer},
+					  CODING_DATE = SYSDATE
 					  
+			where CODING_NO = #{problemNo}
  	</update>
  	
- 	<delete id="deleteCoding" parameterType="int">
- 		DELETE FROM CODING WHERE CODING_PROBLEMNO = #{problemNo}
+ 	
+ 	<delete id="deleteCoding">
+ 		delete from CODING where CODING_NO = #{problemNo}
  	</delete>
  	
- 	<select id="selectAllCoding" resultMap="codingMap">
  	
- 	SELECT * FROM CODING
- 	</select>
+ 	<select id="selectAllCoding" resultMap="CodingTestVO">
+ 		select *
+ 		  from CODING ORDER BY CODING_NO DESC
+    </select>
+    
+    
+    <resultMap type="CodingVO" id="CodingTestVO">
+    
+ 	<result property = "problemNo" column = "CODING_NO"/>
+ 	<result property = "title" column = "CODING_TITLE"/>
+ 	<result property = "levell" column = "CODING_LEVEL"/>
+ 	<result property = "codingContent" column = "CODING_CONTENT"/>
+ 	<result property = "answer" column = "CODING_ANSWER"/>
+ 	<result property = "subjectID" column = "SUBJECT_ID"/>
+ 	<result property = "date" column = "CODING_DATE"/>
+    
+    </resultMap>
  	
- 	<select id="selectOneCoding" resultMap="codingMap" parameterType="int">
- 		SELECT * FROM CODING WHERE CODING_PROBLEMNO = #{problemNo}
- 	</select>
- 	
- 	<select id="selectCoding" resultMap="codingMap">
- 		SELECT * FROM CODING WHERE 1=1
- 		
- 		<if test="title != null and title !=''">
- 			AND CODING_TITLE LIKE '%'||#{title}||'%'
- 		</if>
- 		<if test="levell != null and levell !=''">
- 			AND CODING_LEVEL = #{levell}
- 		</if>
- 		<if test="codingContent != null and codingContent !=''">
- 			AND CODING_CONTENT LIKE '%'||#{codingContent}||'%'
- 		</if>
- 		<if test="answer != null and answer !=''">
- 			AND CODING_ANSWER = #{answer}
- 		</if>
- 		<if test="subjectID != null and subjectID !=''">
- 			AND SUBJECT_ID = #{subjectID}
- 		</if>
- 	</select>
- 	
- 	<select id="checkCoding" resultMap="codingMap">
- 		SELECT COUNT(*) as cnt FROM CODING WHERE 1=1
- 		<if test="prolemNo != null and problemNo !=''">
- 			AND CODING_NO = #{prolemNo}
- 		</if>
- 		<if test="title != null and title !=''">
- 			AND CODING_TITLE LIKE '%'||#{title}||'%'
- 		</if>
- 		<if test="levell != null and levell !=''">
- 			AND CODING_LEVEL = #{levell}
- 		</if>
- 		<if test="codingContent != null and codingContent !=''">
- 			AND CODING_CONTENT LIKE '%'||#{codingContent}||'%'
- 		</if>
- 		<if test="answer != null and answer !=''">
- 			AND CODING_ANSWER = #{answer}
- 		</if>
- 		<if test="subjectID != null and subjectID !=''">
- 			AND SUBJECT_ID = #{subjectID}
- 		</if>
- 	</select>
+<!-- 각마다 검색할수있게 셀렉트 
+보고싶은  키워드를 그냥 받아 그거에 대한 난이도가 쭈르륵 나오게 고정 과목 3개가있어야해 자바 , 스크립트 , 오라클 --> 
 
+
+ 	<select id="selectAllCodingTest" resultType="vo.CodingTestVO" parameterType="String">
+<!--  	과목 제목을 입력받아 난이도,내용,제목이 출력된다 -->
+ 	select 
+ 		   CODING_LEVEL as levell,
+ 		   CODING_TITLE as title
+ 		  from CODING	
+ 		 where CODING_TITLE like '%' || #{title} || '%' 
+ 	</select> 
  	
+ 	
+ 	<select id="searchLevel" resultType="vo.CodingTestVO" parameterType="String">
+<!--  	과목 난이도 입력받아 문제 내용이 출력된다 -->
+ 	select 
+ 		   CODING_CONTENT as codingContent
+ 		  from CODING
+ 		 where CODING_LEVEL like '%' || #{levell} || '%'
+ 		   and CODING_TITLE like '%' || #{title} || '%'
+ 	</select> 
+ 	
+ 	 <select id="choiceAnswer" resultMap="CodingTestVO">
+<!--  	정답예시를 볼지 안볼지 선택 후 출력 -->
+ 	select 
+ 		   CODING_ANSWER
+ 		  from CODING
+ 		 where 1=1
+ 		   and CODING_LEVEL = #{levell} 
+ 		   and CODING_TITLE = #{title}
+ 	</select> 
+ 	
+	<select id="searchCoding" resultMap="CodingTestVO">
+ 	
+ 	select *
+ 		from CODING
+      where 1=1
+ 		 <if test="title !=null and title != ''"> 
+ 		 		and CODING_TITLE = #{title}
+ 		 </if>
+ 		 <if test="levell !=null and levell != ''"> 
+ 		 		and CODING_LEVEL = #{levell}
+ 		 </if>
+ 		 <if test="codingContent !=null and codingContent != ''"> 
+ 		 		and CODING_CONTENT = #{codingContent}
+ 		 </if>
+ 		 <if test="subjectID !=null and subjectID != ''"> 
+ 		 		and SUBJECT_ID = #{subjectID}
+ 		 </if>
+ 		       
+ 	</select>
 
 </mapper>

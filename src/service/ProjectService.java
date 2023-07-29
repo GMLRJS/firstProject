@@ -66,6 +66,16 @@ public class ProjectService implements InterfaceService {
 		}
 		return false;
 	}
+	
+	public boolean checkNMember(String id) {
+		
+		int cnt = memberService.checkNo(id);
+
+		if (cnt == 1) {
+			return true;
+		}
+		return false;
+	}
 
 	@Override
 	public MemberVO selectMyMember(String id) {
@@ -75,6 +85,12 @@ public class ProjectService implements InterfaceService {
 		return vo;
 	}
 	
+	public MemberVO selectNO(String id) {
+		
+		MemberVO vo = memberService.selectNo(id);
+		
+		return vo;
+	}
 	@Override
 	public boolean updateMember(MemberVO vo) {
 
@@ -395,9 +411,9 @@ public class ProjectService implements InterfaceService {
 	}
 
 	@Override
-	public CommentVO selectComment(int commentNo) {
+	public CommentVO selectComment(CommentVO cv) {
 
-		CommentVO vo = commentService.selectComment(commentNo);
+		CommentVO vo = commentService.selectComment(cv);
 
 		return vo;
 	}
@@ -460,22 +476,6 @@ public class ProjectService implements InterfaceService {
 	}
 
 	@Override
-	public CodingTestVO selectOneCodingTest(int no) {
-		
-		CodingTestVO vo = codingTestService.selectOneCoding(no);
-		
-		return vo;
-	}
-
-	@Override
-	public int checkCodingTest(CodingTestVO vo) {
-		
-		int cnt = codingTestService.countCoding(vo);
-		
-		return cnt;
-	}
-
-	@Override
 	public boolean insertCodingTest(CodingTestVO vo) {
 		
 		int cnt = codingTestService.insertCoding(vo);
@@ -509,11 +509,33 @@ public class ProjectService implements InterfaceService {
 	}
 
 	@Override
-	public int checkSubject(String id) {
+	public List<CodingTestVO> searchLevel(CodingTestVO vo) {
+		List<CodingTestVO> list = codingTestService.searchLevel(vo);
+		return list;
+	}
+	
+	@Override
+	public List<CodingTestVO> choiceAnswer(CodingTestVO vo) {
+		List<CodingTestVO> list = codingTestService.choiceAnswer(vo);
+		return list;
+	}
+	
+	@Override
+		public List<CodingTestVO> searchCoding(CodingTestVO vo) {
+		List<CodingTestVO> list = codingTestService.searchCoding(vo);
+			return list;
+		}
+	
+	@Override
+	public boolean checkSubject(String subjectId) {
 		
-		int cnt = subjectService.checkSubject(id);
+		int cnt = subjectService.checkSubject(subjectId);
 		
-		return cnt;
+		if(cnt == 1) {
+			return true;
+		}
+		return false;
+		
 	}
 
 	@Override
@@ -563,6 +585,7 @@ public class ProjectService implements InterfaceService {
 		
 		return cnt;
 	}
+
 
 
 	

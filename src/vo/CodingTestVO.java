@@ -5,12 +5,13 @@ import java.util.Date;
 public class CodingTestVO {
 
 	private int problemNo;
-	private String title;
 	private String levell;
 	private String codingContent;
 	private String answer;
 	private String subjectID;
-	private String date;
+	private String titleContent;
+	private String title;
+	private Date date;
 	
 	
 	public int getProblemNo() {
@@ -43,14 +44,19 @@ public class CodingTestVO {
 	public void setSubjectID(String subjectID) {
 		this.subjectID = subjectID;
 	}
-	
+	public String getTitleContent() {
+		return titleContent;
+	}
+	public void setTitleContent(String titleContent) {
+		this.titleContent = titleContent;
+	}
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 	

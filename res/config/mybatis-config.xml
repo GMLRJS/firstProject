@@ -14,7 +14,7 @@
 	<typeAlias type="vo.QuestionVO" alias="questionVO"/>
 	<typeAlias type="vo.MemberVO" alias="memberVO"/>
 	<typeAlias type="vo.CurriculumVO" alias="curriculumVO"/>
-	<typeAlias type="vo.CodingTestVO" alias="codingTestVO"/>
+	<typeAlias type="vo.CodingTestVO" alias="codingVO"/>
 	<typeAlias type="vo.SubjectVO" alias="subjectVO"/>
 	<typeAlias type="vo.BoardVO" alias="boardVO"/>
 </typeAliases>

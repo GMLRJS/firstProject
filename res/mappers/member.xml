@@ -67,7 +67,10 @@
 	</select>
 	
 	<select id="checkMember" resultType = "int" parameterType="String">
-		SELECT COUNT(*) as CNT from MEMBER WHERE IS_ACTIVE = 'Y' AND MEM_ID = #{sss}
+		SELECT COUNT(*) as CNT from MEMBER WHERE IS_ACTIVE = 'Y' AND MEM_ID = #{memberID}
+	</select>
+	<select id="checkNMember" resultType = "int" parameterType="String">
+		SELECT COUNT(*) as CNT from MEMBER WHERE IS_ACTIVE = 'N' AND MEM_ID = #{memberID}
 	</select>
 	<select id="countMember" resultType = "int" parameterType="memberVO">
 		SELECT COUNT(*) as CNT FROM MEMBER WHERE IS_ACTIVE = 'Y' 
@@ -90,9 +93,14 @@
 		 	AND CURRI_ID = #{curriculumID}
 		 </if>
 	</select>
-	
+	<select id= "permissionNMember" resultMap="memMap" parameterType="String">
+		SELECT * FROM MEMBER WHERE MEM_ID=#{memid}
+	</select>
 	<select id="searchMember" resultMap="memMap" parameterType="memberVO">
-		SELECT * FROM MEMBER WHERE 1=1
+		SELECT * FROM MEMBER WHERE 1=1 
+		<if test="isActive != null and isActive != ''">
+		 	AND IS_ACTIVE = #{isActive}
+		 </if>
 		 <if test="memberID != null and memberID != ''">
 		 	AND MEM_ID = #{memberID}
 		 </if>
@@ -107,9 +115,6 @@
 		 </if>
 		 <if test="birth != null and birth != ''">
 		 	AND MEM_BIRTH = #{birth}
-		 </if>
-		 <if test="isActive != null and isActive != ''">
-		 	AND IS_ACTIVE = #{isActive}
 		 </if>
 		 <if test="curriculumID != null and curriculumID != ''">
 		 	AND CURRI_ID = #{curriculumID}
